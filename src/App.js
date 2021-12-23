@@ -3,13 +3,13 @@ import Produto from "./components/Produto";
 import style from "./css/Style.css";
 
 function App() {
-  const [produto, setProduto] = React.useState(null);
+  const [produto, setProduto] = React.useState(null); // por boas praticas inicia-se com 'produto e setProduto' e com null
 
   React.useEffect(() =>{
     const produtoLocal = window.localStorage.getItem('produto')
     if(produtoLocal !== null) setProduto(produtoLocal)
     console.log(produtoLocal)
-  }, [])
+  }, []) //[] servem para a função executar uma vez somente e não ficar em loop
 
   React.useEffect(() => {
     if(produto !== null)
