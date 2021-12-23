@@ -5,8 +5,8 @@ const Produto = ({produto}) => {
 
     React.useEffect(() =>{
         if(produto !== null )
-        fetch(`https://ranekapi.origamid.dev/json/api/produto/${produto}`)
-    })
+        fetch(`https://ranekapi.origamid.dev/json/api/produto/${produto}`).then(response => response.json()).then(json => setDados(json))
+    }, [produto])
 
     if(dados === null) return null
 
@@ -14,7 +14,7 @@ const Produto = ({produto}) => {
     return (
         <div>
             <h1>{dados.nome}</h1>
-            <p>{dados.preco}</p>
+            <p>R$ {dados.preco}</p>
             
         </div>
     )
